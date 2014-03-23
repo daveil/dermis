@@ -66,4 +66,8 @@ class ReservationsController extends AppController {
 		$this->Session->setFlash(__('Reservation was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	function on_time_slot($microtime=null){
+		echo json_encode($this->Reservation->getByMicrotime($microtime));exit;
+	}
 }

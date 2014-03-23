@@ -1,9 +1,9 @@
 <?php
-/* OperationSpecial Test cases generated on: 2014-03-23 15:38:54 : 1395560334*/
+/* OperationSpecial Test cases generated on: 2014-03-23 16:06:01 : 1395561961*/
 App::import('Model', 'OperationSpecial');
 
 class OperationSpecialTestCase extends CakeTestCase {
-	var $fixtures = array('app.operation_special');
+	var $fixtures = array('app.operation_special', 'app.store');
 
 	function startTest() {
 		$this->OperationSpecial =& ClassRegistry::init('OperationSpecial');

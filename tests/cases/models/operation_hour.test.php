@@ -1,9 +1,9 @@
 <?php
-/* OperationHour Test cases generated on: 2014-03-23 15:38:46 : 1395560326*/
+/* OperationHour Test cases generated on: 2014-03-23 16:05:55 : 1395561955*/
 App::import('Model', 'OperationHour');
 
 class OperationHourTestCase extends CakeTestCase {
-	var $fixtures = array('app.operation_hour');
+	var $fixtures = array('app.operation_hour', 'app.store');
 
 	function startTest() {
 		$this->OperationHour =& ClassRegistry::init('OperationHour');

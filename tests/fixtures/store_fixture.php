@@ -1,5 +1,5 @@
 <?php
-/* Store Fixture generated on: 2014-03-23 15:48:14 : 1395560894 */
+/* Store Fixture generated on: 2014-03-23 16:06:13 : 1395561973 */
 class StoreFixture extends CakeTestFixture {
 	var $name = 'Store';
 
@@ -22,8 +22,8 @@ class StoreFixture extends CakeTestFixture {
 			'location' => 'Lorem ipsum dolor sit amet',
 			'time_slot_size' => 1,
 			'max_cover_per_time_slot' => 1,
-			'created' => '2014-03-23 15:48:14',
-			'modified' => '2014-03-23 15:48:14'
+			'created' => '2014-03-23 16:06:13',
+			'modified' => '2014-03-23 16:06:13'
 		),
 	);
 }

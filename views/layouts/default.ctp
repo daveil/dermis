@@ -36,7 +36,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link(__('DeRMIS', true), 'http://cakephp.org'); ?></h1>
+			<h1><?php echo $this->Html->link(__('DeRMIS: Dedicated Reservation Management and Information System', true), 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
 

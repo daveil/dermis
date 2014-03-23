@@ -41,14 +41,16 @@ class AppController extends Controller {
 		define('STORE_LOCATION',$_STORE['Store']['location']);
 		define('TIME_SLOT_SIZE',$_STORE['Store']['time_slot_size']);
 		//Define OperatioHour
-		define('MONDAY',0); //SET OperationHour on Monday
-		define('TODAY','March 23, 2014 '); //SET Date today
+		define('MONDAY',6); //SET OperationHour on Monday
+		define('TODAY','March 24, 2014 '); //SET Date today
 		//Prepare Opening time values
 		define('OPEN_TIME', TODAY.$_STORE['OperationHour'][MONDAY]['open_time']);
 		define('OPEN_MICROTIME',strtotime(OPEN_TIME));
 		//Prepare Closing time values
 		define('CLOSE_TIME',TODAY.$_STORE['OperationHour'][MONDAY]['close_time']);
 		define('CLOSE_MICROTIME',strtotime(CLOSE_TIME));
+		//
+		define('TIME_SLOT_STEP',strtotime(OPEN_TIME. '+'.TIME_SLOT_SIZE.'minutes')-OPEN_MICROTIME);
 		
 	}
 }

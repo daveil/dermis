@@ -5,10 +5,11 @@
 	<?php
 		echo $this->Form->input('reservation_id');
 		echo $this->Form->input('service_id');
+		echo $this->Form->input('employee_id');
+		echo $this->Form->input('reserved_time');
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
 		echo $this->Form->input('time_elapsed');
-		echo $this->Form->input('employee_id');
 		echo $this->Form->input('price');
 		echo $this->Form->input('discount');
 	?>

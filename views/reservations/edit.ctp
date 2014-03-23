@@ -8,7 +8,9 @@
 		echo $this->Form->input('slot_id');
 		echo $this->Form->input('status_id');
 		echo $this->Form->input('date_reserved');
+		echo $this->Form->input('time_reserved');
 		echo $this->Form->input('date_served');
+		echo $this->Form->input('time_served');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

@@ -16,6 +16,16 @@
 			<?php echo $this->Html->link($reservationService['Service']['name'], array('controller' => 'services', 'action' => 'view', $reservationService['Service']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Employee'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $this->Html->link($reservationService['Employee']['first_name'], array('controller' => 'employees', 'action' => 'view', $reservationService['Employee']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Reserved Time'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $reservationService['ReservationService']['reserved_time']; ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Start Time'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $reservationService['ReservationService']['start_time']; ?>
@@ -31,9 +41,14 @@
 			<?php echo $reservationService['ReservationService']['time_elapsed']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Employee'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Price'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($reservationService['Employee']['id'], array('controller' => 'employees', 'action' => 'view', $reservationService['Employee']['id'])); ?>
+			<?php echo $reservationService['ReservationService']['price']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Discount'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $reservationService['ReservationService']['discount']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
@@ -44,16 +59,6 @@
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $reservationService['ReservationService']['modified']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Price'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $reservationService['ReservationService']['price']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Discount'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $reservationService['ReservationService']['discount']; ?>
 			&nbsp;
 		</dd>
 	</dl>

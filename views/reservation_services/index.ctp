@@ -5,14 +5,15 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('reservation_id');?></th>
 			<th><?php echo $this->Paginator->sort('service_id');?></th>
+			<th><?php echo $this->Paginator->sort('employee_id');?></th>
+			<th><?php echo $this->Paginator->sort('reserved_time');?></th>
 			<th><?php echo $this->Paginator->sort('start_time');?></th>
 			<th><?php echo $this->Paginator->sort('end_time');?></th>
 			<th><?php echo $this->Paginator->sort('time_elapsed');?></th>
-			<th><?php echo $this->Paginator->sort('employee_id');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th><?php echo $this->Paginator->sort('price');?></th>
 			<th><?php echo $this->Paginator->sort('discount');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -31,16 +32,17 @@
 		<td>
 			<?php echo $this->Html->link($reservationService['Service']['name'], array('controller' => 'services', 'action' => 'view', $reservationService['Service']['id'])); ?>
 		</td>
+		<td>
+			<?php echo $this->Html->link($reservationService['Employee']['first_name'], array('controller' => 'employees', 'action' => 'view', $reservationService['Employee']['id'])); ?>
+		</td>
+		<td><?php echo $reservationService['ReservationService']['reserved_time']; ?>&nbsp;</td>
 		<td><?php echo $reservationService['ReservationService']['start_time']; ?>&nbsp;</td>
 		<td><?php echo $reservationService['ReservationService']['end_time']; ?>&nbsp;</td>
 		<td><?php echo $reservationService['ReservationService']['time_elapsed']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($reservationService['Employee']['id'], array('controller' => 'employees', 'action' => 'view', $reservationService['Employee']['id'])); ?>
-		</td>
-		<td><?php echo $reservationService['ReservationService']['created']; ?>&nbsp;</td>
-		<td><?php echo $reservationService['ReservationService']['modified']; ?>&nbsp;</td>
 		<td><?php echo $reservationService['ReservationService']['price']; ?>&nbsp;</td>
 		<td><?php echo $reservationService['ReservationService']['discount']; ?>&nbsp;</td>
+		<td><?php echo $reservationService['ReservationService']['created']; ?>&nbsp;</td>
+		<td><?php echo $reservationService['ReservationService']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $reservationService['ReservationService']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $reservationService['ReservationService']['id'])); ?>

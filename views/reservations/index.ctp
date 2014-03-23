@@ -7,7 +7,9 @@
 			<th><?php echo $this->Paginator->sort('slot_id');?></th>
 			<th><?php echo $this->Paginator->sort('status_id');?></th>
 			<th><?php echo $this->Paginator->sort('date_reserved');?></th>
+			<th><?php echo $this->Paginator->sort('time_reserved');?></th>
 			<th><?php echo $this->Paginator->sort('date_served');?></th>
+			<th><?php echo $this->Paginator->sort('time_served');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -23,7 +25,7 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $reservation['Reservation']['id']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($reservation['Customer']['id'], array('controller' => 'customers', 'action' => 'view', $reservation['Customer']['id'])); ?>
+			<?php echo $this->Html->link($reservation['Customer']['first_name'], array('controller' => 'customers', 'action' => 'view', $reservation['Customer']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($reservation['Slot']['name'], array('controller' => 'slots', 'action' => 'view', $reservation['Slot']['id'])); ?>
@@ -32,7 +34,9 @@
 			<?php echo $this->Html->link($reservation['Status']['name'], array('controller' => 'statuses', 'action' => 'view', $reservation['Status']['id'])); ?>
 		</td>
 		<td><?php echo $reservation['Reservation']['date_reserved']; ?>&nbsp;</td>
+		<td><?php echo $reservation['Reservation']['time_reserved']; ?>&nbsp;</td>
 		<td><?php echo $reservation['Reservation']['date_served']; ?>&nbsp;</td>
+		<td><?php echo $reservation['Reservation']['time_served']; ?>&nbsp;</td>
 		<td><?php echo $reservation['Reservation']['created']; ?>&nbsp;</td>
 		<td><?php echo $reservation['Reservation']['modified']; ?>&nbsp;</td>
 		<td class="actions">

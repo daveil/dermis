@@ -28,7 +28,6 @@
 <div class="form">
 		<ul class="timeslots">
 		<?php
-			$_MICRO_STEP = strtotime(OPEN_TIME. '+'.TIME_SLOT_SIZE.'minutes')-OPEN_MICROTIME;
 			$_RUN_TIME = OPEN_MICROTIME;
 			do{
 				$_TIME_SLOT = date('h:i a',$_RUN_TIME);
@@ -41,7 +40,7 @@
 					</ul>
 				</li>
 		<?php		
-				$_RUN_TIME +=  $_MICRO_STEP; //Compute for running time
+				$_RUN_TIME +=  TIME_SLOT_STEP; //Compute for running time
 			}while($_RUN_TIME<CLOSE_MICROTIME); //Ensure that running time within operation hours
 		?>
 		</ul>

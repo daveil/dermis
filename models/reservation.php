@@ -55,5 +55,16 @@ class Reservation extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
+	function getByMicrotime($microtime){
+		
+		$date = date('Y-m-d',$microtime);
+		$start_time = date('H:i ',$microtime);
+		$end_time = date('H:i ',$microtime+TIME_SLOT_STEP);
+		
+		$cond = array('Reservation.date_reserved'=>$date,
+					'Reservation.time_reserved >='=>$start_time,
+					'Reservation.time_reserved <='=>$end_time,
+					);
+		return $this->find('all',array('conditions'=>$cond));
+	}
 }

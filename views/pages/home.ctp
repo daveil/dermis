@@ -31,12 +31,12 @@
 			$_RUN_TIME = OPEN_MICROTIME;
 			do{
 				$_TIME_SLOT = date('h:i a',$_RUN_TIME);
-				$_REQ_URI = '/dermis/reservation/on_time_slot/'.$_RUN_TIME;
+				$_REQ_URI = '/dermis/reservations/on_time_slot/'.$_RUN_TIME;
 		?>		
 				<li class="timeslot">
 					<div class="user-time" data-time-slot="<?php echo $_RUN_TIME;?>"><?php echo $_TIME_SLOT; ?></div>
-					<ul class="reservations" data-request="<?php echo $_REQ_URI;?>">
-						<li class="reservation">-</li>
+					<ul class="reservations async-request" data-request-url="<?php echo $_REQ_URI;?>">
+						<li class="reservation request-canvas">-</li>
 					</ul>
 				</li>
 		<?php		
@@ -56,3 +56,4 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
+<?php echo $this->Html->script(array('dermis'),array('inline'=>false));?>

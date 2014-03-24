@@ -33,10 +33,9 @@
 				$_TIME_SLOT = date('h:i a',$_RUN_TIME);
 				$_REQ_URI = '/dermis/reservations/on_time_slot/'.$_RUN_TIME;
 		?>		
-				<li class="timeslot">
+				<li class="timeslot async-request" data-request-url="<?php echo $_REQ_URI;?>" >
 					<div class="user-time" data-time-slot="<?php echo $_RUN_TIME;?>"><?php echo $_TIME_SLOT; ?></div>
-					<ul class="reservations async-request" data-request-url="<?php echo $_REQ_URI;?>">
-						<li class="reservation request-canvas">-</li>
+					<ul class="reservations request-canvas ">
 					</ul>
 				</li>
 		<?php		

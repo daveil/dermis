@@ -1,6 +1,9 @@
 <?php
 class Reservation extends AppModel {
 	var $name = 'Reservation';
+	var $virtualFields  =  array(
+						'schedule'=>"CONCAT(DATE_FORMAT(Reservation.time_reserved,'%l:%i %p'), ' - ' , DATE_FORMAT(Reservation.estimate_end,'%l:%i %p'))"
+					);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(

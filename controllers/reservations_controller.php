@@ -68,6 +68,7 @@ class ReservationsController extends AppController {
 	}
 
 	function on_time_slot($microtime=null){
-		echo json_encode($this->Reservation->getByMicrotime($microtime));exit;
+		$this->layout='plain';
+		$this->set('reservations',$this->Reservation->getByMicrotime($microtime));
 	}
 }

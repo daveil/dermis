@@ -56,14 +56,24 @@ class Reservation extends AppModel {
 		)
 	);
 	function getByMicrotime($microtime){
-		
+		//Convert microtime to date and time
 		$date = date('Y-m-d',$microtime);
-		$start_time = date('H:i ',$microtime);
-		$end_time = date('H:i ',$microtime+TIME_SLOT_STEP);
-		
+		$start_time = date('Hi',$microtime);
+		$end_time = date('Hi',$microtime+TIME_SLOT_STEP);
+		//Buffer on ending
+		$buffer = '0000';
+		//PRIME values
+		$_STPRIME = $start_time.$end_time; //Start Time Prime
+		$_ETPRIME = $end_time.$buffer; //End Time Prime
+		$_TRPRIME = "CONVERT(CONCAT(DATE_FORMAT(Reservation.time_reserved,'%k%i'),DATE_FORMAT(Reservation.estimate_end,'%k%i')), UNSIGNED INTEGER)"; //Time Reserved Prime
+		$_EEPRIME = "CONVERT(CONCAT(DATE_FORMAT(Reservation.estimate_end,'%k%i'),'$buffer'), UNSIGNED INTEGER)"; //Estimate End Prime
+		//Build condition
 		$cond = array('Reservation.date_reserved'=>$date,
-					'Reservation.time_reserved >='=>$start_time,
-					'Reservation.time_reserved <='=>$end_time,
+					'OR'=>array(
+						array($_TRPRIME.'>='.$_STPRIME,$_TRPRIME.'<='.$_ETPRIME),
+						array($_TRPRIME.'<='.$_STPRIME,$_EEPRIME.'>='.$_ETPRIME),
+						array($_EEPRIME.'>='.$_STPRIME,$_EEPRIME.'<='.$_ETPRIME),
+						)		
 					);
 		return $this->find('all',array('conditions'=>$cond));
 	}

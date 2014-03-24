@@ -3,6 +3,7 @@
 	$.each($('.async-request'),function(ri,ro){
 		var _url = $(ro).data('request-url');
 		var _elm =  $(ro).find('.request-canvas');
+		_elm.html('Queueing');
 		var _request = {'url':_url,'elem':_elm};
 		ASYNC_REQUESTS.push(_request);
 	});
@@ -12,7 +13,9 @@
 			var _request = ASYNC_REQUESTS[index];
 			$.ajax({
 				'url':_request.url,
-				'beforeSend':function(){},
+				'beforeSend':function(){
+					_request.elem.html('Checking');
+				},
 				'success':function(_response){
 					_request.elem.html(_response);
 					return fetch_request(index+1);
